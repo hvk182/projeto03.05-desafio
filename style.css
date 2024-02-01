@@ -1,0 +1,391 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --color-base-main: hsl(195, 91%, 25%);
+  --color-base-white: hsl(0, 0%, 100%);
+  --color-base-text-800: #202024;
+  --color-base-text-900: #121214;
+
+  /* mp = margin or padding */
+  --mp-x: 2.4rem;
+  --mp-y: 3.4rem;
+}
+
+:root,
+input {
+  font-family: "Mulish", sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+  animation: page-load 1s forwards;
+}
+
+#app {
+  display: grid;
+  grid-template:
+    "A" auto
+    "B" auto
+    "C" auto
+    "D" auto;
+  min-height: 100vh;
+}
+
+header {
+  grid-area: A;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-base-main);
+}
+
+.header-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1.6rem var(--mp-x);
+  gap: 2.6rem;
+}
+
+header .logo-background {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-base-white);
+  padding: 0.8rem;
+  border-radius: 50%;
+}
+
+.logo-background img {
+  transition: all 200ms ease-out;
+}
+
+.logo-background:hover {
+  cursor: pointer;
+}
+
+.logo-background:hover img {
+  transform: scale(1.2);
+}
+
+header form {
+  flex: 1;
+}
+
+.input-wrapper label {
+  /* Oculta o label, mas mantêm
+    a acessibilidade da pagina. */
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 4rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 1.2rem 1.4rem;
+  border-radius: 0.4rem;
+  border: 0;
+}
+
+.input-wrapper input,
+.input-wrapper input::placeholder {
+  color: var(--color-base-white);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.input-wrapper input:focus {
+  outline: 0.1rem solid var(--color-base-white);
+}
+
+header .avatar {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  transition: all 200ms ease-out;
+}
+
+header .avatar:hover {
+  cursor: pointer;
+  filter: brightness(108%);
+}
+
+main {
+  grid-area: B;
+  margin-bottom: var(--mp-y);
+}
+
+main .article-img {
+  /* Display: block elimina um
+  espaço que fica entre a 
+  imagem e o proximo elemento. */
+  display: block;
+  width: 100%;
+  /* Que aspect-ratio é essa?
+  foi só pra ficar igual 
+  a refêrencia, só isso. */
+  aspect-ratio: 430/219;
+  object-fit: cover;
+  margin-bottom: var(--mp-y);
+}
+
+main article {
+  padding: 0 var(--mp-x);
+}
+
+article .title-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: var(--mp-y);
+}
+
+article h1,
+aside h2 {
+  color: var(--color-base-text-800);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.8rem;
+}
+
+article p {
+  color: var(--color-base-text-900);
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+}
+
+.button-wrapper button {
+  width: 4rem;
+  height: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--color-base-main);
+  border: 0;
+  border-radius: 50%;
+
+  transition: all 200ms ease-out;
+}
+
+.button-wrapper button img {
+  transition: all 200ms ease-out;
+}
+
+.button-wrapper button:hover {
+  cursor: pointer;
+}
+
+.button-wrapper button:hover img {
+  transform: scale(1.2);
+}
+
+.button-wrapper #like-button:hover {
+  background-color: #49b04d;
+}
+
+.button-wrapper #deslike-button:hover {
+  background-color: #c74040;
+}
+
+aside {
+  grid-area: C;
+  width: 100%;
+  padding: 0 var(--mp-x);
+  margin-bottom: var(--mp-y);
+}
+
+.related-wrapper {
+  width: 38.4rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--mp-x);
+  gap: var(--mp-x);
+}
+
+.related-article {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.related-article:hover {
+  cursor: pointer;
+}
+
+.related-article img {
+  width: 15.1rem;
+
+  /* Que aspect-ratio é essa?
+    foi só pra ficar igual 
+    a refêrencia, só isso. */
+  aspect-ratio: 151/84;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: all 200ms ease-out;
+}
+
+.related-article:hover img {
+  filter: brightness(110%);
+  transform: rotate(-2deg);
+}
+
+.info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.related-article h3 {
+  color: var(--color-base-text-800);
+  font-size: 1.8rem;
+  font-weight: 700;
+  transition: all 200ms ease-out;
+}
+
+.related-article:hover h3 {
+  color: var(--color-base-main);
+}
+
+.related-article p {
+  color: var(--color-base-text-900);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+}
+
+footer {
+  grid-area: D;
+
+  text-align: center;
+  background-color: var(--color-base-main);
+  padding: 1.6rem;
+
+  color: var(--color-base-white);
+  font-weight: 600;
+  line-height: 3.2rem;
+}
+
+@media (min-width: 848px) {
+  .header-content {
+    width: 80rem;
+    padding: 1.6rem 0;
+  }
+
+  main {
+    margin-top: var(--mp-y);
+  }
+
+  main,
+  aside {
+    width: 80rem;
+    justify-self: center;
+  }
+
+  main .article-img {
+    border-radius: 0.5rem;
+  }
+
+  main .title-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  main article,
+  aside {
+    padding: 0 0;
+  }
+}
+
+@media (max-width: 1265px) {
+  .header-content {
+    transition: all 500ms ease-out;
+  }
+
+  main {
+    animation: shrink-fade 1s forwards;
+  }
+
+  aside {
+    animation: shrink-fade 1s forwards;
+  }
+}
+
+@media (min-width: 1266px) {
+  body {
+    background: #f4fcff;
+  }
+
+  #app {
+    grid-template:
+      "A A A A"
+      "B B C C"
+      "D D D D" / 1fr 800px 384px 1fr;
+    gap: 0 3.4rem;
+  }
+
+  .header-content {
+    width: 121.8rem;
+    transition: all 500ms ease-out;
+  }
+
+  main {
+    justify-self: flex-end;
+    animation: grow-fade 1s forwards;
+  }
+
+  aside {
+    width: 38.4rem;
+    margin-top: var(--mp-y);
+    justify-self: flex-start;
+    animation: grow-fade 1s forwards;
+  }
+}
+
+/* usar a mesma animação em momentos diferentes para de funcionar. */
+@keyframes page-load {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes grow-fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes shrink-fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
